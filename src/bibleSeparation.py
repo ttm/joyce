@@ -104,15 +104,14 @@ for line in t:
     else:
         akey = line[3:6]
 
+names = []
 for b in tt:
     if not tt[b]:
         print(b)
     else:
         text = " ".join(tt[b])
-        aname = codes[b].replace(" ","").lower()
+        aname = codes[b].replace(" ","").lower() + ".txt"
         f = open(tdir+aname, "w")
         f.write(text)
         f.close()
-
-
-
+        names.append(aname)
