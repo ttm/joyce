@@ -10,6 +10,7 @@ files = ['finnegans.txt',
     'portrait.txt',
     'stephen.txt',
     'ulysses.txt',
+    'dubliners.txt',
 ]
 tdir = '../corpus/'
 tsj = [] # Joyce's texts
@@ -50,19 +51,20 @@ known_words=set(WL)
 stopwords = set(k.corpus.stopwords.words("english"))
 punctuations = set(string.punctuation)
 def takeMeasures(book):
-    # achievement of meaninful features
+    # achievement of meaninful sets
     book = book.lower()
+    sentences = k.tokenize.sent_tokenize(book)
     tokens = k.tokenize.wordpunct_tokenize(book)
     tokens_ = set(tokens)
-    sentences = k.tokenize.sent_tokenize(book)
     sw = [i for i in tokens if i in stopwords]
     kw = [i for i in tokens if i in known_words and i not in stopwords and i not in punctuations]
     pt = [i for i in tokens if i in punctuations]
     w_sp = [i for i in tokens if i not in stopwords and i not in punctuations]
     ss = [wn.synsets(i) for i in kw]
-    ss = [i[0] for i in ss if i] # depth
+    ss = [i[0] for i in ss if i] # for depth
 
     # quantization
+    st_sz = [len(i) for i in sentences]
     tk_sz = [len(i) for i in tokens]
     kw_sz = [len(i) for i in kw]
     st_sz = [len(i) for i in sentences]
@@ -78,6 +80,8 @@ def takeMeasures(book):
     pt_tk  = len(pt)/len(tokens)
     kw_w_sp = len(kw)/len(w_sp)
 
+    stM    = n.mean(st_sz)
+    stD    = n.std( st_sz)
     tkM    = n.mean(tk_sz)
     tkD    = n.std( tk_sz)
     kwM    = n.mean(kw_sz)
@@ -91,7 +95,7 @@ def takeMeasures(book):
     d2M    = n.mean(d2)
     d2D    = n.std( d2)
 
-    return tk_st, tk_div, sw_tk, kw_tk, pt_tk, kw_w_sp, tkM, tkD, kwM, kwD, w_spM, w_spD, stM, stD, d1M, d1D, d2M, d2D
+    return tk_st, tk_div, sw_tk, kw_tk, pt_tk, kw_w_sp, stM, stD, tkM, tkD, kwM, kwD, w_spM, w_spD, stM, stD, d1M, d1D, d2M, d2D
 
 print("starting analizes")
 anj = []
@@ -107,6 +111,7 @@ for i, t in enumerate(tsb):
     anb.append(takeMeasures(t))
     print("b", i)
 
+import pickle
 def pDump(tobject,tfilename):
     with open(tfilename,"wb") as f:
         pickle.dump(tobject,f,-1)
