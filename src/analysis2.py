@@ -62,13 +62,13 @@ names = ['finnegans',
 # plot PCA
 import pylab as p
 p.clf()
-p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3)
-p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
-p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3)
+p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3, label="Joyce")
+p.plot(x[len(m[0]):len(m[0])+len(m[1])], y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3, label="Shakespeare")
+p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3, label="Bible")
 p.xlabel( 'first component')
 p.ylabel('second component')
 placeTitles(x[:len(m[0])], y[:len(m[0])], names)
+p.legend(loc="lower right")
 p.savefig("../latex/figs/pca.png")
 
 p.clf()

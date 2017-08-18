@@ -18,6 +18,8 @@ length of sentences (?), etc.
 * expose the tables of formation of the principal components?
 * explain what is the taxonomic tree for one to understand what is a
   synset depth
+* expose the values of indivual engenvalues
+* Bible or bible?
 
 
 * Figures
