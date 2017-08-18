@@ -50,27 +50,45 @@ eig_values_=100*eig_values/n.sum(n.abs(eig_values))
 eig_vectors_=n.array([100*eig_vectors[:,i]/n.abs(eig_vectors[:,i]).sum() for i in range(eig_vectors.shape[1])]).T
 feature_vec_=n.array([100*feature_vec[:,i]/n.abs(feature_vec[:,i]).sum() for i in range(feature_vec.shape[1])]).T
 
+def placeTitles(x,y,texts):
+    for xx, yy, ttext in zip(x,y,texts):
+        p.text(xx,yy,ttext)
+names = ['finnegans',
+          'portrait',
+           'stephen',
+           'ulysses',
+         'dubliners',
+]
 # plot PCA
 import pylab as p
 p.clf()
 p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3)
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        y[len(m[0]):len(m[0])+len(m[1])], "go", ms=3)
+        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
 p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3)
+p.xlabel( 'first component')
+p.ylabel('second component')
+placeTitles(x[:len(m[0])], y[:len(m[0])], names)
 p.savefig("../latex/figs/pca.png")
 
 p.clf()
 p.plot(x[:len(m[0])], z[:len(m[0])], "ro", ms=3)
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        z[len(m[0]):len(m[0])+len(m[1])], "go", ms=3)
+        z[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
 p.plot(x[len(m[0])+len(m[1]):], z[len(m[0])+len(m[1]):], "b+", ms=3)
+p.xlabel( 'first component')
+p.ylabel('third component')
+placeTitles(x[:len(m[0])], z[:len(m[0])], names)
 p.savefig("../latex/figs/pca2.png")
 
 p.clf()
 p.plot(y[:len(m[0])], z[:len(m[0])], "ro", ms=3)
 p.plot(y[len(m[0]):len(m[0])+len(m[1])],
-        z[len(m[0]):len(m[0])+len(m[1])], "go", ms=3)
+        z[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
 p.plot(y[len(m[0])+len(m[1]):], z[len(m[0])+len(m[1]):], "b+", ms=3)
+p.xlabel( 'second component')
+p.ylabel('third component')
+placeTitles(y[:len(m[0])], z[:len(m[0])], names)
 p.savefig("../latex/figs/pca3.png")
 
 # plot ABSTRACT
@@ -79,8 +97,11 @@ x = matrix[:,-4]
 y = matrix[:,-2]
 p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3)
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        y[len(m[0]):len(m[0])+len(m[1])], "go", ms=3)
+        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
 p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3)
+p.xlabel( r'$\mu(min\;depth\;of\;synset)$')
+p.ylabel( r'$\mu(max\;depth\;of\;synset)$')
+placeTitles(x[:len(m[0])], y[:len(m[0])], names)
 p.savefig("../latex/figs/abst1.png")
 
 p.clf()
@@ -88,6 +109,9 @@ x = matrix[:,3]
 y = matrix[:,5]
 p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3)
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        y[len(m[0]):len(m[0])+len(m[1])], "go", ms=3)
+        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
 p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3)
+p.xlabel( '(number of known words) / (number of tokens)')
+p.ylabel('(number of known word) / (number of most meaningful words)')
+placeTitles(x[:len(m[0])], y[:len(m[0])], names)
 p.savefig("../latex/figs/abst2.png")

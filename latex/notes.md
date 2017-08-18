@@ -14,6 +14,15 @@ length of sentences (?), etc.
 * present these results to the literary critics community
 * find better references (especially some that we know about. Maybe
   remove wikipedia)
+* distinction between analysis and method and technique.
+* expose the tables of formation of the principal components?
+* explain what is the taxonomic tree for one to understand what is a
+  synset depth
+
+
+* Figures
+* Read again
+* Send to Luis
 
 
 

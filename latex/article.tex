@@ -176,14 +176,14 @@ These routines can be inspected through reading the scripts in Table~\ref{tab:fi
 	All files are found in a public git repository~\citep{repo}.}\label{tab:files}
 \vspace{12pt}
 \centering{}
-	\begin{tabular}{  c | p{8cm} }
+	\begin{tabular}{  c | p{7cm} }
 	\textbf{File}           & \textbf{Description} \\\hline
 	\texttt{scripts/analysis.py}  & Python script that makes the initial quantification of the books \\
 	\texttt{scripts/analysis2.py}  & Python script that performs PCA and renders the figures with scatter plots \\
 	\texttt{scripts/bibleSeparation.py}  & Python scripts that separates the King James Bible text into files with individual books \\
 	\texttt{scripts/shakespeareSeparation.py}  & Python scripts that separates the text with the complete works of William Shakespeare into files with individual books \\
-        \texttt{corpus/*}  & text files corresponding to individual books from Shakespeare, Joyce and the bible  \\
-	\texttt{latex/*}  & the PDF of this article and the files necessary to render it. It is the main documentation of the proposed analysis. \\
+        \texttt{corpus/*}  & Text files corresponding to individual books from Shakespeare, Joyce and the bible  \\
+	\texttt{latex/*}  & The PDF of this article and the files necessary to render it. It is the main documentation of the proposed analysis. \\
 \end{tabular}
 \end{table}
 
@@ -217,7 +217,11 @@ and we will probably do so in further considerations of this efforts.
 \vspace{-2pt}
 \begin{center}
 \includegraphics[height=6.7cm,width=9cm]{figs/pca}%
-\caption{First two principal components.}
+    \caption{Reference works (from Shakespeare and the bible) and a selection of books by James Joyce plotted with respect to the first two principal components.
+    As expected, Ulysses and Finnegans Wake near each and farther from the other books. Dubliners and Portrait are also near each other but also near other books (in this case, books from the bible).
+    Stephen Hero is between these two groups, also coherent with expectations.
+    These is no prevalence of few measures in these components, reason why we omit this aspect of the analysis.
+    The interested reader should access the scripts described in Table~\ref{tab:files} to deepen the analysis exposed here only by way of illustration of the proposed method.}
 \label{fig:pca1}%
 \end{center}
 \end{figure}
@@ -235,7 +239,9 @@ Even so, some of them fall near bible books.
 \vspace{-2pt}
 \begin{center}
 \includegraphics[height=6.7cm,width=9cm]{figs/pca2}%
-\caption{First and third principal components.}
+\caption{First and third principal components.
+    In this case, the separation of the works are less clear.
+    This is especially true for Stephen Hero.}
 \label{fig:pca2}%
 \end{center}
 \end{figure}
@@ -258,7 +264,11 @@ books.
 \vspace{-2pt}
 \begin{center}
 \includegraphics[height=6.7cm,width=9cm]{figs/pca3}%
-\caption{Second and third principal components.}
+\caption{Second and third principal components.
+    This is a notable case because of the it leads one to the
+    same conclusion as Figure~\ref{fig:pca1} but is even more explicit.
+    On one hand, this graph might be regarded as less meaningful than the other because it is related to less relevant components.
+    On the other hand, we are analyzing art and more subtle artifices might be the focus of the artist or the way the resulting literature is absorbed by the reader.}
 \label{fig:pca3}%
 \end{center}
 \end{figure}
@@ -280,7 +290,10 @@ This diversity is convenient for a reference literature to compare something aga
 \vspace{-2pt}
 \begin{center}
 \includegraphics[height=6.7cm,width=9cm]{figs/abst1}%
-\caption{Synset depths. Lower depth is regarded here as evidence of abstraction.}
+\caption{Synset depths. Lower depth is regarded here as evidence of abstraction. 
+    In this case, surprisingly, Ulysses and Finnegans Wake are near Shakespeare and have more deeper synsets.
+    In other words, it does not reflect the abstraction of the language as we hypothesized before performing the analysis.
+    This might mean that we should update our conceptualizations but might also be a byproduct of the fact that these works hold less known words (see Figure~\ref{fig:abst2}), and the ones that are known are used to deploy very definite meaning (i.e. words with deep synsets).}
 \label{fig:abst1}%
 \end{center}
 \end{figure}
@@ -299,8 +312,10 @@ pre-processing and then processing and rendering the figures can all be performe
 \vspace{-2pt}
 \begin{center}
 \includegraphics[height=6.7cm,width=9cm]{figs/abst2}%
-\caption{Fraction of known words among all tokens and significant words.
-    Lower faction is regarded here as evidence of abstraction.}
+    \caption{Fraction of known words among all tokens and among most significant words (words which are not stopwords).
+    Lower faction is regarded here as evidence of abstraction because the reader should infer meaning.
+    Finnegans Wake is very distinct from all the books, as expected.
+    It is surprising that: 1) Ulysses has a higher rate of known words that Dubliners; and 2) that these two measures are the best for a classifier to recognize these works by James Joyce, among all the measures used in the figures of this article, including the principal components.}
 \label{fig:abst2}%
 \end{center}
 \end{figure}
@@ -330,6 +345,7 @@ In further efforts, we should:
         Can we use length of words and sentences?
     \item Vary the methods and state reasonable generic bounds e.g. for splitting a work to
         obtain more data points.
+    \item Investigate the results exposed in Figure~\ref{fig:abst1} which are not in consonance with what we expected.
 \end{itemize}
 
 \subsection*{\textit{Acknowledgements}}
