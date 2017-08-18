@@ -15,6 +15,7 @@ length of sentences (?), etc.
 * metrics vs measure vs measurements
 * better distinguish between analysis and method and technique.
 * entity names for the analysis of unknown words?
+* add note about the observations by Chu.
 
 
 * Figures
@@ -22,4 +23,5 @@ length of sentences (?), etc.
 * Send to Luis
 
 
+A simple model for literary analysis by text analytics: comparative approach and example on James Joyce against Shakespeare and the Bible
 
