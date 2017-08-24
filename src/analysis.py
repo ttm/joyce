@@ -67,7 +67,6 @@ def takeMeasures(book):
     st_sz = [len(i) for i in sentences]
     tk_sz = [len(i) for i in tokens]
     kw_sz = [len(i) for i in kw]
-    st_sz = [len(i) for i in sentences]
     w_sp_sz = [len(i) for i in w_sp]
     d1 = [i.max_depth() for i in ss]
     d2 = [i.min_depth() for i in ss]
