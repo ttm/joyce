@@ -72,46 +72,50 @@ p.legend(loc="lower right")
 p.savefig("../latex/figs/pca.png")
 
 p.clf()
-p.plot(x[:len(m[0])], z[:len(m[0])], "ro", ms=3)
+p.plot(x[:len(m[0])], z[:len(m[0])], "ro", ms=3, label="Joyce")
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        z[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
-p.plot(x[len(m[0])+len(m[1]):], z[len(m[0])+len(m[1]):], "b+", ms=3)
+        z[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3, label="Shakespeare")
+p.plot(x[len(m[0])+len(m[1]):], z[len(m[0])+len(m[1]):], "b+", ms=3, label="Bible")
 p.xlabel( 'first component')
 p.ylabel('third component')
 placeTitles(x[:len(m[0])], z[:len(m[0])], names)
+p.legend(loc="upper right")
 p.savefig("../latex/figs/pca2.png")
 
 p.clf()
-p.plot(y[:len(m[0])], z[:len(m[0])], "ro", ms=3)
+p.plot(y[:len(m[0])], z[:len(m[0])], "ro", ms=3, label="Joyce")
 p.plot(y[len(m[0]):len(m[0])+len(m[1])],
-        z[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
-p.plot(y[len(m[0])+len(m[1]):], z[len(m[0])+len(m[1]):], "b+", ms=3)
+        z[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3, label="Shakespeare")
+p.plot(y[len(m[0])+len(m[1]):], z[len(m[0])+len(m[1]):], "b+", ms=3, label="Bible")
 p.xlabel( 'second component')
 p.ylabel('third component')
 placeTitles(y[:len(m[0])], z[:len(m[0])], names)
+p.legend(loc="lower left")
 p.savefig("../latex/figs/pca3.png")
 
 # plot ABSTRACT
 p.clf()
 x = matrix[:,-4]
 y = matrix[:,-2]
-p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3)
+p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3, label="Joyce")
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
-p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3)
+        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3, label="Shakespeare")
+p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3, label="Bible")
 p.xlabel( r'$\mu(min\;depth\;of\;synset)$')
 p.ylabel( r'$\mu(max\;depth\;of\;synset)$')
 placeTitles(x[:len(m[0])], y[:len(m[0])], names)
+p.legend(loc="upper left")
 p.savefig("../latex/figs/abst1.png")
 
 p.clf()
 x = matrix[:,3]
 y = matrix[:,5]
-p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3)
+p.plot(x[:len(m[0])], y[:len(m[0])], "ro", ms=3, label="Joyce")
 p.plot(x[len(m[0]):len(m[0])+len(m[1])],
-        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3)
-p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3)
+        y[len(m[0]):len(m[0])+len(m[1])], "g^", ms=3, label="Shakespeare")
+p.plot(x[len(m[0])+len(m[1]):], y[len(m[0])+len(m[1]):], "b+", ms=3, label="Bible")
 p.xlabel( '(number of known words) / (number of tokens)')
 p.ylabel('(number of known word) / (number of most meaningful words)')
 placeTitles(x[:len(m[0])], y[:len(m[0])], names)
+p.legend(loc="lower right")
 p.savefig("../latex/figs/abst2.png")
