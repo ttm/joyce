@@ -3,7 +3,7 @@
 
 #title:
 A Simple Text Analytics Model To Assist Literary Criticism:
-comparative approach and example on james joyce against shakespeare and the bible
+comparative approach and example on James Joyce against Shakespeare and the Bible
 
 #authors:
 Renato Fabbri and Luis Henrique Garcia
